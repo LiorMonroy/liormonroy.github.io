@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- The <head> holds info about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility @ TMU Pocket Guide | Lior Monroy</title>
+  <meta name="description" content="How Lior researched, wrote, and designed a plain-language accessibility guide for TMU students.">
+
+  <!-- Fonts from Google Fonts: Fraunces (headings), DM Sans (body), Caveat (handwritten touches) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Connects this page to stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lets keyboard and screen reader users jump straight past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER & NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        Lior Monroy
+        <svg class="sparkle sparkle--small" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html" aria-current="page">Work</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PROJECT HEADER ============ -->
+    <section class="page-header">
+      <div class="container">
+        <a class="back-link" href="work.html">&larr; All work</a>
+        <p class="eyebrow">Accessibility &amp; human-centred design</p>
+        <h1>Accessibility @ TMU <em>Pocket Guide</em></h1>
+        <p class="page-lede">A 40-page, plain-language guide to accommodations, student rights, and support at TMU. Made by students, for students.</p>
+
+        <dl class="project-meta">
+          <div><dt>Status</dt><dd>Launched &middot; actively maintained</dd></div>
+          <div><dt>Timeline</dt><dd>January 2026 &ndash; present</dd></div>
+          <div><dt>My role</dt><dd>Independent project: research, writing, and design</dd></div>
+          <div><dt>Context</dt><dd>Academic Accommodation Support Student Advisory Committee</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="project-body">
+
+          <p class="who"><span>Who it's for:</span> TMU students navigating accommodations and support, especially those who aren't sure where to start or whether they even qualify.</p>
+
+          <figure class="project-figure">
+            <img src="images/pocket-guide/cover.jpg" width="1100" height="619"
+                 alt="Cover of the guide. It reads: Accessibility @ TMU, Student Pocket Guide Edition. Made by students, for students. Your guide to navigating accessibility supports at TMU, including how to get started, what to expect, and helpful tips along the way.">
+          </figure>
+
+          <!-- TODO: decide whether to share the full PDF publicly. -->
+          <p><a class="button button--primary" href="pocket-guide.pdf">View the full guide (PDF)</a></p>
+
+          <h2>Where it started</h2>
+          <p>After attending the 2025 Student-Led Accessibility Conference, I wrote a 13-page report on my own, analysing each workshop and proposing improvements for the next year. One of my recommendations was that the conference should give attendees something practical to keep:</p>
+          <blockquote class="pull-quote">
+            <p>&ldquo;A summary sheet or slide with practical tools, strategies, and examples would make the event more informative and skill-building.&rdquo;</p>
+            <cite>From my conference report, October 2025</cite>
+          </blockquote>
+          <p>When planning started for the 2026 conference, I wanted to turn that idea into something real. Students would spend a few hours at the conference, but the questions they had about accommodations would last all year. I wanted them to leave with a resource that kept supporting them long after the event ended.</p>
+
+          <h2>The problem</h2>
+          <p>TMU has a lot of accessibility support, but finding and understanding it is hard. Information is spread across many different websites and often written in policy language. Students can get stuck on questions that seem basic but rarely get answered plainly: What even is documentation? Where do I get it? Is my situation "serious enough" to ask for help?</p>
+          <p>Writing the conference report had already got me thinking about what barriers exist and how to remove them. Many of the barriers to accessing support weren't about whether a service existed, but whether students could find it, understand it, and feel confident using it.</p>
+
+          <h2>Research</h2>
+          <p>Before writing anything, I wanted to understand what students actually struggle with and what already existed.</p>
+          <ul class="sparkle-list">
+            <li><strong>Staff and community members:</strong> I met with people working on similar resources and projects to learn from their experiences and approaches.</li>
+            <li><strong>Students:</strong> I talked with classmates and other members of the Student Advisory Committee about where they'd gotten stuck.</li>
+            <!-- This line mentions own experience with accommodations. Consider whether to keep it or not -->
+            <li><strong>My own experience:</strong> I drew on what I'd learned navigating accommodations at TMU myself.</li>
+          </ul>
+
+          <h2>Design decisions</h2>
+          <!-- TODO: these describe what the guide does. -->
+          <p>Everything in the guide is shaped around what a student needs to know, in roughly the order they'll need it.</p>
+
+          <h3>Organized around the student, not the institution</h3>
+          <p>Instead of following how university departments are structured, the guide follows a student's experience across five sections: getting support, finding community, succeeding in academics, financial support, and advocating for yourself. Accessibility affects more than grades, so the guide also covers money, community, and crisis support.</p>
+
+          <h3>Explaining the basics plainly</h3>
+          <p>The guide defines terms that are often assumed knowledge, like what "documentation" is, what it's used for, and where to get it on and off campus.</p>
+          <figure class="project-figure">
+            <img src="images/pocket-guide/documentation.jpg" width="1100" height="619" loading="lazy"
+                 alt="Guide page titled What is Documentation. It explains that documentation is a form or letter from a healthcare professional describing how a condition affects you at school, focusing on academic impacts rather than the diagnosis. It lists impacts it might assess, such as meeting deadlines, focus and memory, physical tasks, and consistency on good versus bad days.">
+            <figcaption>Explaining what documentation actually is, in plain language.</figcaption>
+          </figure>
+
+          <h3>Answering the doubts that stop people from asking</h3>
+          <p>A "Common Misconceptions" page tackles beliefs that keep students from reaching out, like "My situation isn't serious enough." It pairs them with a short email template, so the first step feels smaller.</p>
+          <figure class="project-figure">
+            <img src="images/pocket-guide/misconceptions.jpg" width="1100" height="619" loading="lazy"
+                 alt="Guide page titled Common Misconceptions. Four myths are each crossed out and corrected, including I don't have a diagnosis yet so I can't apply, and My situation isn't serious enough, with the reply: if it's affecting your academics, it's serious. A sticky note gives the AAS contact email and a short email template for asking about options.">
+            <figcaption>Myths, corrections, and an email template students can copy.</figcaption>
+          </figure>
+
+          <h3>Showing that accommodations aren't one-size-fits-all</h3>
+          <p>A comparison table separates long-term accommodations, short-term accommodations, and one-time academic consideration requests, so students can see which one fits their situation and who to contact.</p>
+          <figure class="project-figure">
+            <img src="images/pocket-guide/accommodation-types.jpg" width="1100" height="619" loading="lazy"
+                 alt="Guide page titled Length of Accommodations. A three-column table compares long-term accommodations for ongoing conditions, short-term accommodations for temporary situations like injury or burnout, and one-time academic consideration requests for unexpected situations like being sick during a midterm. Each column explains how it works.">
+            <figcaption>Long-term, short-term, or one-time: which support fits.</figcaption>
+          </figure>
+
+          <h3>Pointing to the source</h3>
+          <p>Every topic ends with a link to the official page, so students can check details and go deeper. This also keeps the guide honest: it simplifies the language, not the facts.</p>
+
+          <h2>Outcome</h2>
+          <ul class="sparkle-list">
+            <li>Launched in 2026 and shared with TMU students</li>
+            <li>Presented to incoming students at SHIFT orientation</li>
+            <li>Actively maintained: I update links and documents as university resources change</li>
+          </ul>
+
+          <h2>What I learned</h2>
+          <!-- TODO: this is a draft. -->
+          <p>The hardest part wasn't finding information. It was deciding what to leave out, and how to say things simply without making them less accurate. I also learned that a resource isn't finished when it launches. Links change and policies get updated, so keeping it useful is ongoing work.</p>
+
+          <h2>What I'd do differently</h2>
+          <p>When I made the guide, I hadn't yet learned how accessible formats work. The icons, clips, and layered text boxes make it look friendly, but in a PDF, decorations like these can confuse a screen reader or make it read things in the wrong order. Now I think about accessibility in the format itself from the start, not just in the words. Building this website, and writing its accessibility statement, is where I've started putting that into practice.</p>
+
+          <ul class="tags project-tags" aria-label="Skills">
+            <li>Research</li><li>Plain-language writing</li><li>Resource design</li><li>Equity &amp; accessibility</li><li>Stakeholder collaboration</li>
+          </ul>
+
+          <a class="back-link back-link--bottom" href="work.html">&larr; Back to all work</a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Lior A. Monroy-Morelos. Built by hand in HTML and CSS.</p>
+      <a href="accessibility.html">Accessibility statement</a>
+    </div>
+  </footer>
+
+</body>
+</html>

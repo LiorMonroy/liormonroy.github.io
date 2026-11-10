@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- The <head> holds info about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Statement | Lior Monroy</title>
+  <meta name="description" content="How Lior's portfolio website was built to be accessible, what's still in progress, and how to report a barrier.">
+
+  <!-- Fonts from Google Fonts: Fraunces (headings), DM Sans (body), Caveat (handwritten touches) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Connects this page to stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lets keyboard and screen reader users jump straight past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER & NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        Lior Monroy
+        <svg class="sparkle sparkle--small" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-header">
+      <div class="container">
+        <p class="eyebrow">Accessibility statement</p>
+        <h1>Built to work for <em>everyone</em></h1>
+        <p class="page-lede">Accessibility is a big part of my work, so it should be part of this website too. Here's what I've done, what I'm still working on, and how to tell me if something doesn't work for you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+
+        <h2>My goal</h2>
+        <p>I built this site to meet the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines (WCAG) 2.2</a> at Level AA. These are the international guidelines for making websites usable by people with disabilities. I wrote the site by hand in HTML and CSS, which gave me control over how every part of it works.</p>
+        <p>I'm a student, not an accessibility auditor, and the site hasn't had a formal audit. I'd rather be honest about that than claim it's perfect.</p>
+
+        <h2>What I've done</h2>
+
+        <h3>Seeing the content</h3>
+        <ul class="sparkle-list">
+          <li>I checked every text colour against its background. All text meets the WCAG AA contrast ratio of at least 4.5 to 1. My brightest pink is only used for decoration and large display text, and I use a deeper pink for links and buttons.</li>
+          <li>Text is set in sizes that can be zoomed up to 200% without breaking the layout.</li>
+          <li>The layout adjusts to phones, tablets, and computers.</li>
+          <li>Information is never shown by colour alone. For example, the skill chips on my About page are written out in words.</li>
+        </ul>
+
+        <h3>Using a keyboard</h3>
+        <ul class="sparkle-list">
+          <li>Everything can be reached and used with a keyboard, including the flip card on my homepage and the filters on my Experience page.</li>
+          <li>A clear outline shows where you are as you move through the page.</li>
+          <li>A "Skip to main content" link appears when you first press Tab, so you don't have to tab through the menu on every page.</li>
+        </ul>
+
+        <h3>Using a screen reader</h3>
+        <ul class="sparkle-list">
+          <li>Pages use proper headings, landmarks, and lists, so they can be navigated by structure.</li>
+          <li>Meaningful images have text descriptions. Purely decorative drawings, like the footprint trail and the rotary phone, are hidden from screen readers so they don't add noise.</li>
+          <li>Changes on the page, like the number of roles shown after filtering or copying my email address, are announced.</li>
+        </ul>
+
+        <h3>Motion</h3>
+        <ul class="sparkle-list">
+          <li>Animations are small and only respond to scrolling or clicking. Nothing flashes.</li>
+          <li>If you've turned on "Reduce motion" in your device settings, the animations stop and everything is shown in its finished state.</li>
+        </ul>
+
+        <h2>What I'm still working on</h2>
+        <p>This site is still growing, and so is this list:</p>
+        <ul class="sparkle-list">
+          <li><strong>Testing:</strong> I'm testing pages with a keyboard and with VoiceOver, the screen reader built into Mac and iPhone, as I add them.</li>
+          <li><strong>Documents:</strong> my résumé and any project reports I share will be tagged, accessible PDFs.</li>
+          <li><strong>Video:</strong> my introduction video will have captions and a written transcript when it's added.</li>
+          <li><strong>Project images:</strong> charts and screenshots on my project pages will have descriptions of what they show, not just what they are.</li>
+        </ul>
+
+        <!-- TODO: update this date after each site review -->
+        <p class="statement-date">Last reviewed November 2026</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEEDBACK ============ -->
+    <section class="connect" aria-labelledby="feedback-heading">
+      <div class="container connect-inner">
+        <h2 id="feedback-heading">Run into a barrier?</h2>
+        <p>If something on this site doesn't work for you, please tell me. I'll do my best to fix it, and I can send you the information in another format in the meantime.</p>
+        <div class="button-row">
+          <a class="button button--light" href="mailto:lior.monroy@gmail.com?subject=Accessibility%20feedback%20on%20your%20portfolio">Email me about it</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Lior A. Monroy-Morelos. Built by hand in HTML and CSS.</p>
+      <a href="accessibility.html" aria-current="page">Accessibility statement</a>
+    </div>
+  </footer>
+
+</body>
+</html>

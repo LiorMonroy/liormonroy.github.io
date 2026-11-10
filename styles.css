@@ -1077,6 +1077,14 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 10px 24px rgba(48, 40, 58, 0.06);
 }
 
+/* Smaller text on the four small contact cards so long emails fit */
+.contact-cards--row .contact-link {
+  font-size: 0.9rem;
+}
+.contact-cards--row .contact-hint {
+  font-size: 0.82rem;
+}
+
 /* The main email card is tinted pink */
 .contact-card--main {
   grid-column: 1 / -1;
@@ -1507,3 +1515,200 @@ button.button--primary { background-color: var(--pink-text); }
   }
   .card:hover, .button:hover { transform: none; }
 }
+
+/* =========================================================
+   ACCESSIBILITY STATEMENT PAGE
+   ========================================================= */
+
+.prose { max-width: 46rem; }
+.prose h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  margin-top: 2.75rem;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose h3 {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--purple);
+  margin-top: 1.75rem;
+}
+.prose p { font-size: 1.08rem; }
+
+.statement-date {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--purple);
+  margin-top: 2.5rem;
+}
+
+/* =========================================================
+   WORK PAGE + PROJECT PAGES
+   ========================================================= */
+
+/* Real image previews on project cards */
+.card-preview--image {
+  padding: 0;
+  height: 170px;
+  background: var(--lavender);
+}
+.card-preview--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* "All work" links */
+.back-link {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+.back-link:hover { text-decoration: underline; }
+.back-link--bottom { margin: 2.5rem 0 0; }
+
+/* The quick facts row under the project title */
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem 2rem;
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.project-meta dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pink-text);
+}
+.project-meta dd { margin: 0.2rem 0 0; }
+
+/* The main reading column */
+.project-body { max-width: 48rem; }
+.project-body > .who { font-size: 1.05rem; margin-bottom: 2rem; }
+.project-body h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  margin-top: 3rem;
+}
+.project-body h3 {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--purple);
+  margin-top: 2rem;
+}
+.project-body p { font-size: 1.08rem; }
+
+.pull-quote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--plum-soft);
+}
+
+/* Images of the guide */
+.project-figure { margin: 1.75rem 0 2rem; }
+.project-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 10px 10px 0 var(--lavender);
+}
+.project-figure figcaption {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--purple);
+  margin-top: 0.9rem;
+}
+
+.project-tags { margin-top: 2.5rem; }
+
+/* Makes a whole project card clickable when its title is a link */
+.card { position: relative; }
+.card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+.card:has(h3 a:hover) h3 a { color: var(--pink-text); text-decoration: underline; }
+.card:has(h3 a:focus-visible) { outline: 3px solid var(--purple); outline-offset: 3px; }
+.card h3 a:focus-visible { outline: none; }
+
+/* Cards without a project page yet don't lift on hover */
+.card:not(:has(h3 a)):hover { transform: none; box-shadow: none; }
+
+/* The "Read the case study" cue at the bottom of linked cards */
+.card-cta {
+  margin: 1.1rem 0 0;
+  font-weight: 700;
+  color: var(--pink-text);
+}
+.card-cta span {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.card:hover .card-cta span { transform: translateX(4px); }
+
+/* Gait analysis project page */
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 1.5rem;
+  align-items: end;
+}
+@media (min-width: 640px) {
+  .figure-pair { grid-template-columns: 1fr 1fr; }
+}
+
+.code-block {
+  background: var(--plum);
+  color: #F4EEF8;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  overflow-x: auto;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 1.25rem 0 2rem;
+}
+.code-comment { color: var(--pink-light); }
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.75rem 0 2rem;
+}
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+.results-table caption {
+  text-align: left;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+.results-table th,
+.results-table td {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.results-table thead th {
+  background: var(--lavender);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--plum);
+}
+.results-table tbody th { font-weight: 500; }
+
+/* Centres thumbnails that shouldn't be cropped from the top */
+.card-preview--centred { background: var(--white); border-bottom: 1px solid var(--border); }
+.card-preview--centred img { object-fit: contain; object-position: center; }

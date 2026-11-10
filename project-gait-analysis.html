@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- The <head> holds info about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gait Pressure Analysis in Parkinson's | Lior Monroy</title>
+  <meta name="description" content="A MATLAB analysis of plantar pressure data comparing walking patterns in people with and without Parkinson's disease.">
+
+  <!-- Fonts from Google Fonts: Fraunces (headings), DM Sans (body), Caveat (handwritten touches) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Connects this page to stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lets keyboard and screen reader users jump straight past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER & NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        Lior Monroy
+        <svg class="sparkle sparkle--small" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html" aria-current="page">Work</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PROJECT HEADER ============ -->
+    <section class="page-header">
+      <div class="container">
+        <a class="back-link" href="work.html">&larr; All work</a>
+        <p class="eyebrow">Engineering &amp; code</p>
+        <h1>Gait pressure analysis in <em>Parkinson's</em></h1>
+        <p class="page-lede">Using MATLAB and open plantar pressure data to see how Parkinson's disease shows up in the way people walk.</p>
+
+        <dl class="project-meta">
+          <div><dt>Status</dt><dd>Completed &middot; course project</dd></div>
+          <!-- TODO: confirm the course name and term -->
+          <div><dt>Course</dt><dd>BME100, Summer 2025</dd></div>
+          <div><dt>My role</dt><dd>Individual project: analysis, code, report, and presentation</dd></div>
+          <div><dt>Tools</dt><dd>MATLAB R2024a, PhysioNet gait data</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="project-body">
+
+          <p class="who"><span>Who it's for:</span> clinicians and engineers looking for simple, wearable ways to track how Parkinson's affects walking.</p>
+
+          <h2>The question</h2>
+          <p>Parkinson's disease affects around 10 million people worldwide, and one of its earliest effects is on how a person walks. There's no routine lab test for it, so small, measurable changes in gait can be useful clues for diagnosis and for tracking how treatment is working.</p>
+          <p>I wanted to know: using only pressure sensors in a shoe insole and some code, could I find measurable differences between people with and without Parkinson's?</p>
+
+          <h2>The data</h2>
+          <p>I used the <a href="https://physionet.org/content/gaitpdb/1.0.0/">Gait in Parkinson's Disease</a> database from PhysioNet. Each participant walked at their own pace on level ground for about two minutes, wearing insoles with eight pressure sensors under each foot. The sensors recorded force 100 times per second.</p>
+          <p>I analysed 12 baseline walking trials: 6 from healthy control participants and 6 from people with Parkinson's.</p>
+
+          <h2>My approach</h2>
+          <p>I wrote MATLAB scripts that load each trial, calculate the gait metrics, and loop through all 12 participants to build a comparison table with group averages and standard deviations.</p>
+          <ul class="sparkle-list">
+            <li><strong>Centre of pressure:</strong> a weighted average of the sensor forces and positions, calculated for every frame, shows how weight moves across each foot during a step.</li>
+            <li><strong>Cleaning the data:</strong> frames where a foot carried less than 50 N were treated as the foot being in the air and left out.</li>
+            <li><strong>Gait metrics:</strong> peak heel and toe force, total time each foot was on the ground, centre of pressure path length, and an asymmetry index comparing the average force on each foot.</li>
+            <li><strong>Visuals:</strong> force-over-time graphs, centre of pressure trajectories, and an animated pressure map of both feet.</li>
+          </ul>
+
+          <p>Here's the core of the centre of pressure calculation:</p>
+          <pre class="code-block" tabindex="0" aria-label="MATLAB code sample"><code><span class="code-comment">% Centre of pressure: force-weighted average of sensor positions</span>
+COP_L_x = sum(L_sensors .* X_L, 2) ./ (sum(L_sensors, 2) + eps);
+COP_L_y = sum(L_sensors .* Y_L, 2) ./ (sum(L_sensors, 2) + eps);
+
+<span class="code-comment">% Ignore frames where the foot isn't on the ground</span>
+valid_L = L_total &gt; threshold;   <span class="code-comment">% threshold = 50 N</span>
+COP_L_x(~valid_L) = NaN;
+COP_L_y(~valid_L) = NaN;
+
+<span class="code-comment">% How far the centre of pressure travelled</span>
+COP_path_L = sum(sqrt(diff(COP_L_x).^2 + diff(COP_L_y).^2), 'omitnan');</code></pre>
+
+          <h2>What I found</h2>
+          <p>On average, the Parkinson's group showed patterns that match what's described in the research on Parkinsonian gait:</p>
+          <ul class="sparkle-list">
+            <li><strong>Weaker heel strike:</strong> peak heel forces were lower, suggesting a less complete heel-to-toe roll through each step.</li>
+            <li><strong>More time on the ground:</strong> each foot spent more of the walk in contact with the ground, consistent with slower, more cautious steps.</li>
+            <li><strong>Less balanced loading:</strong> the asymmetry index was higher, meaning force was spread less evenly between the two feet.</li>
+          </ul>
+
+          <div class="table-wrap" tabindex="0" role="region" aria-labelledby="results-caption">
+            <table class="results-table">
+              <caption id="results-caption">Group averages, with standard deviations</caption>
+              <thead>
+                <tr><th scope="col">Metric</th><th scope="col">Control (6)</th><th scope="col">Parkinson's (6)</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Peak heel force, left foot</th><td>367 &plusmn; 127 N</td><td>260 &plusmn; 153 N</td></tr>
+                <tr><th scope="row">Peak heel force, right foot</th><td>368 &plusmn; 134 N</td><td>229 &plusmn; 111 N</td></tr>
+                <tr><th scope="row">Time on the ground, left foot</th><td>77.4 &plusmn; 2.6 s</td><td>80.7 &plusmn; 4.0 s</td></tr>
+                <tr><th scope="row">Time on the ground, right foot</th><td>76.5 &plusmn; 2.0 s</td><td>80.6 &plusmn; 3.4 s</td></tr>
+                <tr><th scope="row">Asymmetry index</th><td>0.038 &plusmn; 0.027</td><td>0.053 &plusmn; 0.024</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Force over time</h3>
+          <p>In the healthy example, the left and right force curves overlap closely in a steady rhythm. In the Parkinson's example, the right foot consistently carries more load than the left, and there's an irregular break partway through the walk.</p>
+          <figure class="project-figure">
+            <img src="images/gait/forces-control.jpg" width="1447" height="515" loading="lazy"
+                 alt="Graph of total ground reaction force over about 120 seconds for a healthy participant. Blue left-foot and red right-foot peaks alternate in a steady rhythm and reach similar heights, around 1100 to 1250 newtons.">
+            <figcaption>Healthy participant: left and right feet carry similar loads.</figcaption>
+          </figure>
+          <figure class="project-figure">
+            <img src="images/gait/forces-parkinsons.jpg" width="1447" height="515" loading="lazy"
+                 alt="Graph of total ground reaction force over about 120 seconds for a participant with Parkinson's. The red right-foot peaks are consistently higher than the blue left-foot peaks, and the pattern breaks up briefly around 62 to 67 seconds.">
+            <figcaption>Participant with Parkinson's: the right foot carries more load, with a break around the one-minute mark.</figcaption>
+          </figure>
+
+          <h3>Centre of pressure</h3>
+          <p>Each line traces how weight moved under a foot during one step. The healthy trajectories form tight, consistent bands with a slight curve near the ball of the foot. The Parkinson's trajectories are wider and less consistent from step to step.</p>
+          <div class="figure-pair">
+            <figure class="project-figure">
+              <img src="images/gait/cop-control.jpg" width="615" height="715" loading="lazy"
+                   alt="Centre of pressure trajectories for a healthy participant. The blue left-foot and red right-foot paths each form a narrow, tightly overlapping vertical band, curving slightly inward near the top.">
+              <figcaption>Healthy participant</figcaption>
+            </figure>
+            <figure class="project-figure">
+              <img src="images/gait/cop-parkinsons.jpg" width="615" height="716" loading="lazy"
+                   alt="Centre of pressure trajectories for a participant with Parkinson's. The blue and red paths form wider, more scattered bands, with individual steps varying more from each other.">
+              <figcaption>Participant with Parkinson's</figcaption>
+            </figure>
+          </div>
+
+          <!-- TODO: add the animated pressure map GIFs here once you have them -->
+
+          <h2>Limitations and what I'd do differently</h2>
+          <!-- TODO: review these. -->
+          <p>Looking back at this project, there's a lot I'd approach differently now:</p>
+          <ul class="sparkle-list">
+            <li><strong>Sample size:</strong> 6 participants per group is small, and I didn't run statistical tests. The standard deviations overlap a lot, so these are trends, not proven differences.</li>
+            <li><strong>Body weight:</strong> heavier people put more force through their feet, so I'd normalize forces by body weight before comparing participants.</li>
+            <li><strong>Per-step timing:</strong> I measured total time on the ground across the whole walk. Measuring stance time for each individual step would be more precise and easier to compare with published research.</li>
+            <li><strong>Units:</strong> the sensor positions in the dataset are relative coordinates rather than true distances, so centre of pressure path lengths are only meaningful compared with each other.</li>
+          </ul>
+
+          <h2>What I learned</h2>
+          <!-- TODO: this is a draft. -->
+          <p>This was my first time taking raw sensor data all the way to results: loading it, cleaning it, calculating metrics, and turning them into visuals someone else could understand. It also taught me that getting a result is only half the job. Checking whether it's actually reliable, and being clear about what it can and can't tell you, matters just as much.</p>
+
+          <!-- TODO: link your report and code once they're ready to share -->
+
+          <ul class="tags project-tags" aria-label="Skills">
+            <li>MATLAB</li><li>Data analysis</li><li>Research</li>
+          </ul>
+
+          <a class="back-link back-link--bottom" href="work.html">&larr; Back to all work</a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Lior A. Monroy-Morelos. Built by hand in HTML and CSS.</p>
+      <a href="accessibility.html">Accessibility statement</a>
+    </div>
+  </footer>
+
+</body>
+</html>
