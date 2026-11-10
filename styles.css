@@ -1,0 +1,1509 @@
+/* =========================================================
+   LIOR'S PORTFOLIO: MAIN STYLESHEET
+   Every page links to this one file, so changes here
+   update the whole site.
+   ========================================================= */
+
+
+/* ---------- 1. DESIGN TOKENS ----------
+   Colours, fonts, and sizes live here.
+   Change a value once and it updates everywhere. */
+:root {
+  /* Colours */
+  --white: #FFFFFF;
+  --blush: #FDF3F8;        /* soft pink background for alternating sections */
+  --lavender: #F5F0FC;     /* soft purple background */
+  --pink: #E83E9B;         /* DECORATION and large text only (3.8:1 contrast) */
+  --pink-text: #B8277A;    /* links, buttons, small text (5.8:1, passes WCAG AA) */
+  --pink-light: #F7B8DA;   /* pink for use on dark plum backgrounds */
+  --purple: #8054C7;       /* headings, accents (5.2:1, passes AA) */
+  --plum: #30283A;         /* main text colour */
+  --plum-soft: #5A5066;    /* secondary text (7.6:1) */
+  --border: #EADFF0;
+
+  /* Fonts */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Layout */
+  --max-width: 1100px;
+  --radius: 18px;
+}
+
+
+/* ---------- 2. BASICS ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--plum);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;   /* about 17px: comfortable to read */
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 1em; }
+
+a { color: var(--pink-text); }
+
+img { max-width: 100%; display: block; }
+
+/* A clear focus outline for keyboard users. Never remove this! */
+:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Centres content and keeps it from getting too wide */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+
+/* ---------- 3. SKIP LINK ----------
+   Hidden until a keyboard user presses Tab */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  background: var(--plum);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  z-index: 100;
+}
+.skip-link:focus { top: 1rem; }
+
+
+/* ---------- 4. HEADER & NAV ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--plum);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.nav-list a {
+  color: var(--plum);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  border-bottom-color: var(--pink);
+  color: var(--pink-text);
+}
+
+
+/* ---------- 5. SPARKLES (decorative stars) ---------- */
+.sparkle { fill: var(--pink); }
+.sparkle--small { width: 14px; height: 14px; }
+
+.sparkle--hero-1,
+.sparkle--hero-2 {
+  position: absolute;
+  pointer-events: none;
+}
+.sparkle--hero-1 { width: 42px; height: 42px; top: -14px; right: -12px; }
+.sparkle--hero-2 { width: 20px; height: 20px; bottom: 18%; left: -30px; fill: var(--purple); }
+
+
+/* ---------- 6. HERO ---------- */
+.hero {
+  background: linear-gradient(160deg, var(--white) 55%, var(--blush) 100%);
+}
+
+/* On phones: text, then photo underneath */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding-top: clamp(4rem, 10vw, 7rem);
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+}
+
+/* On wider screens: text on the left, photo on the right */
+@media (min-width: 860px) {
+  .hero-inner { grid-template-columns: 1.35fr 1fr; }
+}
+
+.hand-note {
+  font-family: var(--font-hand);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--pink-text);
+  margin-bottom: 0.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  max-width: 14ch;
+  letter-spacing: -0.01em;
+}
+
+/* The italic purple "designed" */
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--purple);
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  color: var(--plum-soft);
+  max-width: 38rem;
+  margin-bottom: 2rem;
+}
+
+/* The photo area (holds the flip card, hint, and sparkles) */
+.hero-photo {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  justify-self: center;
+}
+
+/* ---------- 6b. FLIP CARD ---------- */
+.flip-card {
+  position: relative;
+  isolation: isolate;            /* keeps the pink outline behind the card */
+  aspect-ratio: 4 / 5;
+  perspective: 1200px;           /* gives the flip its 3D depth */
+}
+
+/* The offset gradient outline behind the card */
+.flip-card::before {
+  content: "";
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  padding: 2px;                                    /* thickness of the outline */
+  background: linear-gradient(160deg, var(--pink), var(--purple));
+  /* Cuts out the middle so only the outline shows */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.flip-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card.is-flipped .flip-inner { transform: rotateY(180deg); }
+
+/* Both sides share the arch shape and sit on top of each other */
+.flip-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* FRONT: the photo */
+.flip-front {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.flip-front:hover img { transform: scale(1.03); }
+.flip-front:focus-visible { outline-offset: -6px; outline-color: var(--white); }
+
+/* BACK: the informal bio */
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--plum);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3.5rem 1.6rem 1.5rem;  /* extra top space because of the arch curve */
+}
+
+.flip-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.flip-facts { margin: 0 0 1.1rem; }
+.flip-facts div { margin-bottom: 0.7rem; }
+.flip-facts dt {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  line-height: 1.1;
+  color: var(--pink-light);
+}
+.flip-facts dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.flip-return {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--plum);
+  background: var(--pink-light);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+.flip-return:hover { background: var(--white); }
+.flip-return:focus-visible { outline-color: var(--pink-light); }
+
+/* The little handwritten hint under the photo */
+.flip-hint {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  color: var(--pink-text);
+  text-align: center;
+  margin: 1.75rem 0 0;
+}
+
+
+/* ---------- 7. BUTTONS ---------- */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.button:hover { transform: translateY(-2px); }
+
+.button--primary { background: var(--pink-text); color: var(--white); }
+.button--primary:hover { background: var(--plum); }
+
+.button--secondary { border-color: var(--purple); color: var(--purple); }
+.button--secondary:hover { background: var(--lavender); }
+
+.button--light { background: var(--white); color: var(--plum); }
+.button--light:hover { background: var(--blush); }
+
+.button--outline-light { border-color: var(--white); color: var(--white); }
+.button--outline-light:hover { background: rgba(255, 255, 255, 0.12); }
+
+
+/* ---------- 8. SECTIONS ---------- */
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.section--tinted { background: var(--blush); }
+
+/* The small label above each heading */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 0.75rem;
+}
+
+.intro-text {
+  max-width: 42rem;
+  font-size: 1.15rem;
+}
+
+
+/* ---------- 8b. THE WHEEL (beside "A little about me") ---------- */
+.intro--with-wheel {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Wheel on the left, text on the right on wider screens */
+@media (min-width: 860px) {
+  .intro--with-wheel { grid-template-columns: 340px 1fr; gap: 4rem; }
+}
+
+.wheel {
+  position: relative;
+  width: min(300px, 78vw);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+/* The faint dashed circle the nodes travel along */
+.wheel-track {
+  position: absolute;
+  inset: 18%;
+  border: 2px dashed var(--border);
+  border-radius: 50%;
+}
+
+.wheel-centre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  translate: -50% -50%;
+  fill: var(--pink);
+}
+
+.wheel-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0.4rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  color: var(--plum);
+  background: var(--lavender);
+  border: 2px solid var(--border);
+  /* --x and --y are set by the script as you scroll */
+  transform: translate(-50%, -50%) translate(var(--x, 0px), var(--y, 0px));
+  transition: scale 0.45s ease, background-color 0.45s, color 0.45s, border-color 0.45s;
+}
+
+/* The circle at the top grows and changes colour */
+.wheel-node.is-active { scale: 1.3; color: var(--white); z-index: 1; }
+.wheel-node.is-active[data-colour="pink"]   { background: var(--pink-text); border-color: var(--pink-text); }
+.wheel-node.is-active[data-colour="purple"] { background: var(--purple); border-color: var(--purple); }
+.wheel-node.is-active[data-colour="plum"]   { background: var(--plum); border-color: var(--plum); }
+
+
+/* ---------- 9. PROJECT CARDS ----------
+   auto-fill means the grid works with 3 cards or 12. */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(48, 40, 58, 0.08);
+}
+
+/* Coloured preview panel. Swap these for real images later. */
+.card-preview {
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem 1.25rem;
+}
+.card-preview--pink   { background: linear-gradient(135deg, #FBD3E9, var(--blush)); }
+.card-preview--purple { background: linear-gradient(135deg, #DCCDF5, var(--lavender)); }
+.card-preview--mix    { background: linear-gradient(135deg, #FBD3E9, #DCCDF5); }
+
+.card-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.5rem;
+  color: var(--plum);
+  opacity: 0.85;
+}
+
+.card-body {
+  padding: 1.4rem 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card h3 a {
+  color: var(--plum);
+  text-decoration: none;
+}
+.card h3 a:hover { color: var(--pink-text); text-decoration: underline; }
+
+.status {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pink-text);
+  margin-bottom: 0.5rem;
+}
+
+.who {
+  font-size: 0.95rem;
+  color: var(--plum-soft);
+  border-left: 3px solid var(--pink);
+  padding-left: 0.75rem;
+}
+.who span { font-weight: 700; color: var(--plum); }
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0;   /* pushes tags to the bottom of the card */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tags li {
+  font-size: 0.8rem;
+  background: var(--lavender);
+  color: var(--plum);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+
+/* ---------- 10. AREAS OF INTEREST ---------- */
+.interest-grid {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.interest-grid h3 { font-size: 1.15rem; margin-top: 0.75rem; }
+.interest-grid p { color: var(--plum-soft); font-size: 0.98rem; }
+
+.dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.dot--pink   { background: var(--pink); }
+.dot--purple { background: var(--purple); }
+.dot--plum   { background: var(--plum); }
+
+
+/* ---------- 11. NOW SECTION ---------- */
+.updated {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--purple);
+}
+
+.now-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  max-width: 44rem;
+}
+
+.now-list li {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;  /* label column, then sentence column */
+  column-gap: 1.5rem;                  /* space between the two columns */
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.now-label {
+  font-weight: 700;
+  color: var(--pink-text);
+}
+
+/* On narrow phone screens, stack the label above the sentence */
+@media (max-width: 520px) {
+  .now-list li {
+    grid-template-columns: 1fr;
+    row-gap: 0.15rem;
+  }
+}
+
+
+/* ---------- 11b. TIMELINE (beside "What I'm working on") ---------- */
+.now--with-timeline {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .now--with-timeline { grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+
+  /* Pushes the timeline down to line up with the list (computer screens only) */
+  .now--with-timeline .timeline-box { margin-top: 11.5rem; }
+}
+
+.timeline-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem 0 1.5rem;
+  position: relative;
+}
+
+.timeline-heading {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--purple);
+  margin-bottom: 1rem;
+}
+
+/* The scrollable part */
+.timeline-scroll {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 0.25rem 0.75rem 2.5rem 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink-light) transparent;
+}
+
+/* Soft fade at the bottom so people know there's more to scroll */
+.timeline-box::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  height: 3rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--white));
+  pointer-events: none;
+}
+
+.timeline,
+.timeline ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each month: a dot on a vertical line */
+.timeline-month {
+  position: relative;
+  padding: 0 0 1.4rem 1.75rem;
+  border-left: 2px solid var(--border);
+  margin-left: 0.5rem;
+}
+.timeline-month:last-child { border-left-color: transparent; }
+
+.timeline-month::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--pink);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--pink);
+}
+
+/* "Coming up" gets a hollow purple dot */
+.timeline-month--upcoming::before {
+  background: var(--white);
+  box-shadow: 0 0 0 2px var(--purple);
+}
+.timeline-month--upcoming h4 { color: var(--purple); }
+
+.timeline-month h4 {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--pink-text);
+  margin: 0 0 0.35rem;
+}
+
+.timeline-month ul li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-scroll:focus-visible { outline-offset: 4px; }
+
+
+/* ---------- 12. CONNECT ---------- */
+.connect {
+  background: var(--plum);
+  color: var(--white);
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+}
+.connect h2 { color: var(--white); }
+.connect p { max-width: 36rem; font-size: 1.15rem; margin-bottom: 1.75rem; }
+
+
+/* ---------- 13. FOOTER ---------- */
+.site-footer {
+  background: var(--plum);
+  color: var(--pink-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.site-footer p { margin: 0; }
+.site-footer a { color: var(--pink-light); }
+
+
+/* =========================================================
+   ABOUT PAGE
+   ========================================================= */
+
+/* ---------- 15. PAGE HEADER (reusable on every inner page) ---------- */
+.page-header {
+  background: linear-gradient(160deg, var(--white) 55%, var(--blush) 100%);
+  padding: clamp(3rem, 8vw, 5.5rem) 0;
+}
+
+.page-header h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  max-width: 16ch;
+}
+.page-header h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--purple);
+}
+
+.page-lede {
+  font-size: 1.2rem;
+  color: var(--plum-soft);
+  max-width: 36rem;
+}
+
+
+/* ---------- 15b. THE TRAIL (About page header) ---------- */
+.page-header-inner--art {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.trail { display: none; }   /* hidden on phones */
+
+@media (min-width: 860px) {
+  .page-header-inner--art { grid-template-columns: 1fr 300px; }
+  .trail {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    justify-self: end;
+    overflow: visible;
+  }
+}
+
+/* The faint dotted path */
+.trail-path {
+  fill: none;
+  stroke: var(--plum);
+  stroke-opacity: 0.35;
+  stroke-width: 4;
+  stroke-dasharray: 1 11;
+  stroke-linecap: round;
+}
+
+.trail-start { fill: var(--pink); stroke: var(--plum); stroke-width: 3; }
+
+.trail-label {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  font-size: 27px;
+  fill: var(--plum-soft);
+  transition: fill 0.4s;
+}
+
+/* Footprints: hidden until you scroll to them */
+.foot {
+  opacity: 0;
+  transform: scale(0.3);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.35s, transform 0.35s;
+}
+.foot.is-shown { opacity: 1; transform: scale(1); }
+.foot--left  { fill: var(--pink); }
+.foot--right { fill: var(--purple); }
+.foot ellipse { stroke: var(--plum); stroke-width: 1.5; }
+
+/* The X, which pops when the footprints arrive */
+.trail-x line {
+  stroke: var(--pink-text);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+.trail-x {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.trail.is-done .trail-x { transform: scale(1.35) rotate(8deg); }
+.trail.is-done .trail-label--end { fill: var(--pink-text); }
+
+
+/* ---------- 16. STORY + AT A GLANCE ---------- */
+.about-layout {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .about-layout { grid-template-columns: 1fr 300px; gap: 4.5rem; }
+}
+
+.about-story { max-width: 42rem; }
+.about-story h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  margin-top: 2.75rem;
+}
+.about-story h2:first-child { margin-top: 0; }
+.about-story p { font-size: 1.08rem; }
+
+.pull-quote {
+  margin: 2.25rem 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  border-left: 3px solid var(--pink);
+}
+.pull-quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  line-height: 1.3;
+  color: var(--purple);
+  margin: 0;
+}
+
+/* Bullets drawn as tiny pink sparkles */
+.sparkle-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+}
+.sparkle-list li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1.75rem;
+}
+.sparkle-list li::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  color: var(--pink);
+}
+
+/* The At a glance card */
+.glance {
+  background: var(--blush);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+}
+@media (min-width: 900px) {
+  .glance { position: sticky; top: 2rem; }
+}
+
+.glance h2 {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--purple);
+}
+.glance dl { margin: 0 0 1.5rem; }
+.glance dl div {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.glance dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pink-text);
+}
+.glance dd { margin: 0.15rem 0 0; }
+.glance-button { width: 100%; text-align: center; }
+
+
+/* ---------- 16b. TOOLKIT (About page) ---------- */
+.toolkit-intro {
+  max-width: 40rem;
+  color: var(--plum-soft);
+  font-size: 1.08rem;
+}
+
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 860px) {
+  .toolkit-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.toolkit-group {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+/* "Currently learning" gets a dashed outline: still in progress */
+.toolkit-group--learning {
+  background: transparent;
+  border: 2px dashed var(--pink-light);
+}
+
+.toolkit-group h3 {
+  font-style: italic;
+  color: var(--purple);
+  font-size: 1.3rem;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.skill-list li {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) auto;   /* name on the left, chips on the right */
+  align-items: center;
+  gap: 0.4rem 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.skill-list li:last-child { border-bottom: 0; }
+
+.skill-name { font-weight: 500; }
+
+.skill-where {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;   /* keeps chips right-aligned */
+  gap: 0.3rem;
+}
+
+/* On phones, chips move under the name */
+@media (max-width: 520px) {
+  .skill-list li { grid-template-columns: 1fr; }
+  .skill-where { justify-content: flex-start; }
+}
+
+/* Where-I-used-it chips: written out in words, so colour is just a bonus */
+.chip {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.chip--course   { background: var(--lavender); color: var(--plum); }
+.chip--groups   { background: var(--blush); color: var(--pink-text); border: 1px solid var(--pink-light); }
+.chip--campus   { background: var(--purple); color: var(--white); }
+.chip--personal { background: var(--plum); color: var(--white); }
+
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+/* ---------- 17. CONTACT LAYOUT ---------- */
+.contact-layout {
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .contact-layout { grid-template-columns: 320px 1fr; gap: 5rem; }
+}
+
+/* Photo with the same arch and gradient outline as the homepage */
+.contact-photo-wrap {
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
+}
+.contact-photo {
+  position: relative;
+  isolation: isolate;
+}
+.contact-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 999px 999px var(--radius) var(--radius);
+}
+.contact-photo::before {
+  content: "";
+  position: absolute;
+  inset: 16px 16px -16px -16px;      /* offset to the other side this time */
+  border-radius: 999px 999px var(--radius) var(--radius);
+  padding: 2px;
+  background: linear-gradient(200deg, var(--pink), var(--purple));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.contact-note {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  color: var(--pink-text);
+  text-align: center;
+  margin: 1.75rem 0 0;
+}
+
+.contact-content h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); }
+.contact-subheading { margin-top: 2.5rem; }
+
+/* ---------- 18. CONTACT CARDS ---------- */
+.contact-cards {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr;            /* one column on phones */
+  gap: 1rem;
+}
+/* The row of four smaller cards under the photo and email */
+.contact-cards--row { margin-top: 3.5rem; }
+@media (min-width: 560px) {
+  .contact-cards--row { grid-template-columns: repeat(2, 1fr); }   /* 2 x 2 on tablets */
+}
+@media (min-width: 960px) {
+  .contact-cards--row { grid-template-columns: repeat(4, 1fr); }   /* 4 across on computers */
+}
+
+.contact-hint {
+  font-size: 0.9rem;
+  color: var(--plum-soft);
+  margin-bottom: 0.4rem;
+}
+.contact-card .contact-link { word-break: break-word; }
+
+.contact-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.contact-card:hover {
+  border-color: var(--pink-light);
+  box-shadow: 0 10px 24px rgba(48, 40, 58, 0.06);
+}
+
+/* The main email card is tinted pink */
+.contact-card--main {
+  grid-column: 1 / -1;
+  background: var(--blush);
+  border-color: transparent;
+}
+
+.contact-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  margin-bottom: 0.3rem;
+}
+
+.contact-value {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  word-break: break-word;
+  margin-bottom: 0.9rem;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.button--small { padding: 0.55rem 1.1rem; font-size: 0.92rem; }
+button.button { font: inherit; cursor: pointer; background-color: transparent; }
+button.button--primary { background-color: var(--pink-text); }
+
+.copy-status {
+  font-size: 0.85rem;
+  color: var(--plum-soft);
+  margin: 0.5rem 0 0;
+  min-height: 1.2em;
+}
+
+.contact-link {
+  font-weight: 500;
+  text-decoration: none;
+}
+.contact-link:hover { text-decoration: underline; }
+
+
+/* =========================================================
+   EXPERIENCE PAGE
+   ========================================================= */
+
+/* ---------- 19. FILTER BAR (reusable on the Work page too) ---------- */
+.filter-bar { margin-bottom: 2.5rem; }
+
+.filter-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--purple);
+  margin-bottom: 0.6rem;
+}
+
+.filter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--plum);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+.filter-button:hover { border-color: var(--pink-light); background: var(--blush); }
+.filter-button[aria-pressed="true"] {
+  background: var(--pink-text);
+  border-color: var(--pink-text);
+  color: var(--white);
+}
+
+.filter-status {
+  font-size: 0.88rem;
+  color: var(--plum-soft);
+  margin: 0.75rem 0 0;
+  min-height: 1.3em;
+}
+
+/* ---------- 20. ROLE LIST ---------- */
+.exp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+.exp-item[hidden] { display: none; }
+
+/* Dates on the left on computer screens */
+@media (min-width: 760px) {
+  .exp-item { grid-template-columns: 10rem 1fr; gap: 2rem; }
+  .exp-when { padding-top: 1.4rem; text-align: right; }
+}
+
+.exp-date {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.exp-status {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.exp-status--current  { color: var(--pink-text); }
+.exp-status--upcoming { color: var(--purple); }
+.exp-status--previous { color: var(--plum-soft); }
+
+.exp-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--pink);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem 1.5rem;
+  transition: box-shadow 0.25s;
+}
+.exp-card:hover { box-shadow: 0 12px 28px rgba(48, 40, 58, 0.07); }
+
+.exp-type { margin-bottom: 0.6rem; }
+
+.exp-card h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+
+.exp-org {
+  color: var(--plum-soft);
+  font-size: 0.98rem;
+  margin-bottom: 0.9rem;
+}
+
+.exp-points {
+  margin: 0 0 1.1rem;
+  padding-left: 1.2rem;
+}
+.exp-points li { margin-bottom: 0.4rem; }
+.exp-points li::marker { color: var(--pink); }
+
+.chip--work { background: var(--white); color: var(--plum); border: 1px solid var(--plum-soft); }
+
+
+/* =========================================================
+   EXPERIENCE PAGE
+   ========================================================= */
+
+/* Makes sure anything hidden by the filters really disappears */
+[hidden] { display: none !important; }
+
+.chip--independent { background: var(--white); color: var(--plum); border: 1px solid var(--plum-soft); }
+
+/* ---------- 19. FILTERS ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--blush);
+  border-radius: var(--radius);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  margin-right: 0.25rem;
+}
+
+.filter-button {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--purple);
+  background: var(--white);
+  color: var(--purple);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.filter-button:hover { background: var(--lavender); }
+.filter-button[aria-pressed="true"] { background: var(--purple); color: var(--white); }
+
+#skill-filter {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.45rem 2rem 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--purple);
+  background: var(--white);
+  color: var(--plum);
+  cursor: pointer;
+}
+
+.filter-count {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--pink-text);
+  margin: 1rem 0 0;
+}
+
+/* ---------- 20. ROLE CARDS ---------- */
+.role-section { margin-top: 3rem; }
+
+.role-section-heading {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 0;
+}
+
+.role-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 2.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Dates and type on the left, details on the right (computer screens) */
+@media (min-width: 760px) {
+  .role-card { grid-template-columns: 180px 1fr; }
+}
+
+.role-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+@media (min-width: 760px) {
+  .role-meta { flex-direction: column; align-items: flex-start; }
+}
+
+.role-dates {
+  font-size: 0.92rem;
+  color: var(--plum-soft);
+  margin: 0;
+}
+
+.role-body { max-width: 46rem; }
+.role-body h3 { margin-bottom: 0.15rem; }
+
+.role-org {
+  color: var(--purple);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.role-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--plum-soft);
+}
+
+/* The "read more" dropdown */
+.role-details {
+  margin: 0.25rem 0 1rem;
+}
+.role-details summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--pink-text);
+  width: fit-content;
+}
+.role-details summary:hover { text-decoration: underline; }
+.role-details[open] summary { margin-bottom: 0.75rem; }
+
+.role-details h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--purple);
+  margin: 1rem 0 0.4rem;
+}
+.role-details ul { padding-left: 1.2rem; margin: 0; }
+.role-details li { margin-bottom: 0.35rem; }
+
+.role-card .tags { margin-top: 0.5rem; }
+.tags li.is-match { background: var(--pink-text); color: var(--white); }
+
+/* For later: awards list */
+.awards-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.awards-list li { padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
+.award-name { font-weight: 700; }
+.award-meta { color: var(--plum-soft); }
+
+
+/* =========================================================
+   HEADER ART (name badge on Experience, phone on Contact)
+   ========================================================= */
+.header-art { display: none; }   /* hidden on phones */
+
+@media (min-width: 860px) {
+  .page-header-inner--art { grid-template-columns: 1fr 300px; }
+  .header-art {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    justify-self: end;
+    overflow: visible;
+  }
+}
+
+/* ---------- 21. NAME BADGE ---------- */
+.lanyard {
+  fill: none;
+  stroke: url(#lanyard-gradient);
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+.badge-clip   { fill: var(--plum-soft); }
+.badge-body   { fill: var(--white); }
+.badge-top    { fill: var(--purple); }
+.badge-hole   { fill: var(--blush); }
+.badge-outline { fill: none; stroke: var(--plum); stroke-width: 3; }
+.badge-hello {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  fill: var(--white);
+  text-anchor: middle;
+}
+.badge-small {
+  font-family: var(--font-body);
+  font-size: 11px;
+  fill: var(--white);
+  text-anchor: middle;
+}
+.badge-name {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  font-size: 58px;
+  fill: var(--pink-text);
+  text-anchor: middle;
+}
+.badge-spark { fill: var(--pink); }
+
+/* A gentle swing when the page first loads */
+.badge-settle {
+  transform-box: view-box;
+  transform-origin: 140px 116px;
+  animation: badge-settle 2.6s ease-out 0.3s both;
+}
+@keyframes badge-settle {
+  0%   { transform: rotate(10deg); }
+  30%  { transform: rotate(-6deg); }
+  55%  { transform: rotate(3.5deg); }
+  78%  { transform: rotate(-1.5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ---------- 22. VINTAGE PHONE ---------- */
+.phone-base { fill: var(--lavender); stroke: var(--plum); stroke-width: 3; stroke-linejoin: round; }
+.phone-prong { fill: var(--plum); }
+.phone-dial { fill: var(--white); stroke: var(--plum); stroke-width: 3; }
+.phone-holes circle { fill: var(--pink-light); }
+.phone-dial-centre { fill: var(--pink); }
+.phone-handset rect,
+.phone-handset ellipse { fill: var(--pink); stroke: var(--plum); stroke-width: 3; }
+.phone-cord { fill: none; stroke: var(--plum); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* "hello?" and ring lines appear once the handset is lifted */
+.phone-hello {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  font-size: 30px;
+  fill: var(--pink-text);
+  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.phone-ring {
+  fill: none;
+  stroke: var(--purple);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.phone.is-lifted .phone-hello,
+.phone.is-lifted .phone-ring { opacity: 1; }
+
+
+/* ---------- 14. REDUCED MOTION ----------
+   Respects people who've asked their device for less animation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .card:hover, .button:hover { transform: none; }
+}

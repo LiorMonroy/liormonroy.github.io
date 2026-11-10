@@ -1,1 +1,392 @@
-<h1>Hello, I'm Lior</h1>
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- The <head> holds info about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lior | Biomedical Engineering, Accessibility & Human-Centred Technology</title>
+  <meta name="description" content="Lior is a Biomedical Engineering student at Toronto Metropolitan University working at the intersection of technology, accessibility, and human-centred design.">
+
+  <!-- Fonts from Google Fonts: Fraunces (headings), DM Sans (body), Caveat (handwritten touches) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Connects this page to stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lets keyboard and screen reader users jump straight past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER & NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        Lior
+        <svg class="sparkle sparkle--small" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-inner">
+
+        <div class="hero-text">
+          <p class="hand-note">Hi, I'm Lior.</p>
+          <h1>Who is this <em>designed</em> for?</h1>
+          <p class="hero-sub">
+            Technology and the people it's built for shouldn't be separate questions.
+            I'm a biomedical engineering student working in the space between them.
+          </p>
+          <div class="button-row">
+            <a class="button button--primary" href="work.html">See my work</a>
+            <a class="button button--secondary" href="about.html">More about me</a>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <!-- FLIP CARD: front is the photo, back is the informal bio -->
+          <div class="flip-card">
+            <div class="flip-inner">
+
+              <!-- FRONT: the photo is a button so keyboard users can flip it too -->
+              <button class="flip-face flip-front" type="button"
+                      aria-label="Photo of Lior. Select to flip it and see a short, informal bio.">
+                <img src="images/lior.jpg" alt="" width="600" height="750">
+              </button>
+
+              <!-- BACK: "inert" hides it from keyboards and screen readers until flipped -->
+              <div class="flip-face flip-back" inert>
+                <p class="flip-title">Behind the student</p>
+                <dl class="flip-facts">
+                  <!-- TODO: fill these in! -->
+                  <div><dt>Pronouns</dt><dd>she/her/elle [EN, FR]</dd></div>
+                  <div><dt>Fun fact</dt><dd>I'm learning Mandarin to watch CDramas without subtitles</dd></div>
+                  <div><dt>Off the clock</dt><dd>I love reading fantasy novels and gaming on my Switch 2.</dd></div>
+                  <div><dt>Currently obsessed with</dt><dd>Soup dumplings!</dd></div>
+                </dl>
+                <button class="flip-return" type="button">Flip back &#8634;</button>
+              </div>
+
+            </div>
+          </div>
+          <p class="flip-hint" aria-hidden="true">psst, click pic to flip! &#10022;</p>
+          <!-- Decorative sparkles. aria-hidden tells screen readers to skip them. -->
+          <svg class="sparkle sparkle--hero-1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+          <svg class="sparkle sparkle--hero-2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SHORT INTRO ============ -->
+    <section class="section" aria-labelledby="intro-heading">
+      <div class="container intro intro--with-wheel">
+
+        <!-- THE WHEEL: decorative, so screen readers skip it (the text says the same thing) -->
+        <div class="wheel" aria-hidden="true">
+          <div class="wheel-track"></div>
+          <span class="wheel-node" data-colour="pink">Tech</span>
+          <span class="wheel-node" data-colour="purple">Design</span>
+          <span class="wheel-node" data-colour="plum">Public Policy</span>
+          <svg class="sparkle wheel-centre" viewBox="0 0 24 24"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+        </div>
+
+        <div class="intro-copy">
+          <p class="eyebrow">A little about me</p>
+          <h2 id="intro-heading">Engineering with people in mind</h2>
+          <div class="intro-text">
+            <p>I'm a Biomedical Engineering student at Toronto Metropolitan University, with minors in Philosophy and Biological Psychology. I'm interested in how technology, design, and public policy can make people's lives better.</p>
+            <p>Through accessibility advocacy, student leadership, and interdisciplinary projects, I've become especially interested in how we design systems, technologies, and environments, and whether they actually work for the people using them.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--
+      MEET LIOR VIDEO: add this section once the video is ready.
+      Keeping it out for now so there's no empty placeholder on the page.
+    -->
+
+    <!-- ============ FEATURED WORK ============ -->
+    <section class="section section--tinted" aria-labelledby="work-heading">
+      <div class="container">
+        <p class="eyebrow">Featured work</p>
+        <h2 id="work-heading">A few things I've built</h2>
+
+        <!-- Each <article> is one project card. Copy a whole card to add a new one. -->
+        <div class="card-grid">
+
+          <article class="card">
+            <div class="card-preview card-preview--pink" aria-hidden="true">
+              <span class="card-number">01</span>
+            </div>
+            <div class="card-body">
+              <p class="status">Launched &middot; Actively maintained</p>
+              <h3><a href="#">Accessibility @ TMU Pocket Guide</a></h3>
+              <p class="who"><span>Who it's for:</span> students navigating accommodations and university supports, often for the first time.</p>
+              <p>A plain-language guide to academic accommodations, student rights, self-advocacy, and support resources. Shared with students, and I keep its links and documents up to date.</p>
+              <ul class="tags" aria-label="Skills">
+                <li>Research</li><li>Plain-language writing</li><li>Resource design</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-preview card-preview--purple" aria-hidden="true">
+              <span class="card-number">02</span>
+            </div>
+            <div class="card-body">
+              <p class="status">Completed &middot; Course project</p>
+              <h3><a href="#">Gait Analysis Using MATLAB</a></h3>
+              <p class="who"><span>Who it's for:</span> anyone using gait data to understand how a person walks.</p>
+              <p>Analysed plantar-pressure data from PhysioNet: centre-of-pressure paths, stance time, peak pressure, and gait asymmetry, plus an animated pressure visualization.</p>
+              <ul class="tags" aria-label="Skills">
+                <li>MATLAB</li><li>Data analysis</li><li>Visualization</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-preview card-preview--mix" aria-hidden="true">
+              <span class="card-number">03</span>
+            </div>
+            <div class="card-body">
+              <p class="status">Ongoing &middot; 2026&ndash;27</p>
+              <h3><a href="#">Redesigning Committee Recruitment</a></h3>
+              <p class="who"><span>Who it's for:</span> engineering students with a lot to offer but not a long résumé yet.</p>
+              <p>As MUES Equity, Community &amp; Inclusion Commissioner, I built an application, rubric, and optional conversation that value ideas and perspectives, not just past experience.</p>
+              <ul class="tags" aria-label="Skills">
+                <li>Process design</li><li>Equity</li><li>Leadership</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AREAS OF INTEREST ============ -->
+    <section class="section" aria-labelledby="interests-heading">
+      <div class="container">
+        <p class="eyebrow">What I care about</p>
+        <h2 id="interests-heading">Where my interests meet</h2>
+        <ul class="interest-grid">
+          <li>
+            <span class="dot dot--pink" aria-hidden="true"></span>
+            <h3>Biomedical Engineering</h3>
+            <p>Healthcare technology, and how biomedical tools work in real people's lives.</p>
+          </li>
+          <li>
+            <span class="dot dot--purple" aria-hidden="true"></span>
+            <h3>Accessibility</h3>
+            <p>Inclusive design, disability advocacy, and environments that work for more people.</p>
+          </li>
+          <li>
+            <span class="dot dot--plum" aria-hidden="true"></span>
+            <h3>Policy &amp; Systems</h3>
+            <p>Regulation, public service, and how institutions make decisions.</p>
+          </li>
+          <li>
+            <span class="dot dot--pink" aria-hidden="true"></span>
+            <h3>Leadership</h3>
+            <p>Building committees, processes, and communities people want to be part of.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ NOW ============ -->
+    <!-- Remember to update this section whenever things change, and update the date too! -->
+    <section class="section section--tinted" aria-labelledby="now-heading">
+      <div class="container now now--with-timeline">
+
+        <div class="now-copy">
+          <p class="eyebrow">Now</p>
+          <h2 id="now-heading">What I'm working on</h2>
+          <p class="updated">Last updated November 2026</p>
+          <ul class="now-list">
+            <li><span class="now-label">Building</span> This website, from scratch in HTML and CSS.</li>
+            <li><span class="now-label">Learning</span> Python, starting with data analysis.</li>
+            <li><span class="now-label">Reading up on</span> Medical device regulation in Canada, ISO 13485, and ISO 14971.</li>
+            <li><span class="now-label">Planning</span> A solo rebuild of my Arduino heart rate monitor, with a few ideas of my own.</li>
+            <li><span class="now-label">Heading to</span> The Conference on Diversity in Engineering at UVic (Nov 20 to 23) as a MUES delegate.</li>
+          </ul>
+        </div>
+
+        <!-- ============ TIMELINE ============
+             Newest at the top. To add an entry, copy a <li> line inside a month.
+             To add a new month, copy a whole <li class="timeline-month"> block. -->
+        <div class="timeline-box">
+          <h3 class="timeline-heading">The story so far</h3>
+          <!-- tabindex="0" lets keyboard users focus this box and scroll it with arrow keys -->
+          <div class="timeline-scroll" tabindex="0" role="region" aria-label="Timeline of my progress, newest first">
+            <ol class="timeline">
+
+              <li class="timeline-month timeline-month--upcoming">
+                <h4>Coming up</h4>
+                <ul>
+                  <li>Heading to the Conference on Diversity in Engineering at UVic as a MUES delegate (Nov 20 to 23)</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>November 2026</h4>
+                <ul>
+                  <li>Started building this website from scratch!</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>September 2026</h4>
+                <ul>
+                  <li>Became co-chair of Grit with Grace, an initiative on disability representation in campus media</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>August 2026</h4>
+                <ul>
+                  <li>Started as MUES Equity, Community &amp; Inclusion Commissioner</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>April 2026</h4>
+                <ul>
+                  <li>Built an Arduino heart rate monitor with my team</li>
+                  <li>Wrapped up my first term on the Accessibility Accommodation Support Student Advisory Committee</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>January 2026</h4>
+                <ul>
+                  <li>Started building the Accessibility @ TMU Pocket Guide</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>Fall 2025</h4>
+                <ul>
+                  <li>Joined the Academic Integrity Council</li>
+                  <li>Joined the Accessibility Accommodation Support Student Advisory Committee</li>
+                </ul>
+              </li>
+
+              <li class="timeline-month">
+                <h4>July 2025</h4>
+                <ul>
+                  <li>Finished my gait analysis project in MATLAB</li>
+                </ul>
+              </li>
+
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ LET'S CONNECT ============ -->
+    <section class="connect" aria-labelledby="connect-heading">
+      <div class="container connect-inner">
+        <h2 id="connect-heading">Let's connect</h2>
+        <p>Interested in collaborating, swapping ideas, or learning more about my work? I'd love to hear from you.</p>
+        <div class="button-row">
+          <a class="button button--light" href="mailto:lior.monroy@gmail.com">Email me</a>
+          <!-- TODO: link to résumé PDF once it's in the folder -->
+          <a class="button button--outline-light" href="#">View my résumé</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Lior. Built by hand in HTML and CSS.</p>
+      <a href="accessibility.html">Accessibility statement</a>
+    </div>
+  </footer>
+
+  <!-- Makes the photo flip. Also moves keyboard focus to the side you can see. -->
+  <script>
+    const card = document.querySelector('.flip-card');
+    if (card) {
+      const front = card.querySelector('.flip-front');
+      const back = card.querySelector('.flip-back');
+      const flipBack = card.querySelector('.flip-return');
+
+      function setFlipped(flipped) {
+        card.classList.toggle('is-flipped', flipped);
+        front.inert = flipped;
+        back.inert = !flipped;
+        (flipped ? flipBack : front).focus();
+      }
+
+      front.addEventListener('click', () => setFlipped(true));
+      flipBack.addEventListener('click', () => setFlipped(false));
+    }
+
+    // THE WHEEL: rotates as you scroll; the circle at the top grows and changes colour
+    const wheel = document.querySelector('.wheel');
+    if (wheel) {
+      const nodes = [...wheel.querySelectorAll('.wheel-node')];
+      const section = wheel.closest('section');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let ticking = false;
+
+      function updateWheel() {
+        ticking = false;
+        let rotation = 0;
+        if (!reduceMotion.matches) {
+          // How far the section has travelled through the screen, from 0 to 1
+          const box = section.getBoundingClientRect();
+          const screen = window.innerHeight;
+          const progress = Math.min(1, Math.max(0, (screen - box.top) / (screen + box.height)));
+          rotation = progress * 720;   // two full turns while the section scrolls past
+        }
+
+        const radius = wheel.offsetWidth * 0.32;
+        let topIndex = 0, closest = 999;
+
+        nodes.forEach((node, i) => {
+          const angle = rotation - i * 120;              // spaced 120 degrees apart
+          const rad = angle * Math.PI / 180;
+          node.style.setProperty('--x', (radius * Math.sin(rad)).toFixed(1) + 'px');
+          node.style.setProperty('--y', (-radius * Math.cos(rad)).toFixed(1) + 'px');
+          const fromTop = Math.abs(((angle % 360) + 540) % 360 - 180);
+          if (fromTop < closest) { closest = fromTop; topIndex = i; }
+        });
+
+        nodes.forEach((node, i) => node.classList.toggle('is-active', i === topIndex));
+      }
+
+      function requestUpdate() {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateWheel); }
+      }
+
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      updateWheel();
+    }
+  </script>
+
+</body>
+</html>

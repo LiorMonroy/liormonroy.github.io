@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- The <head> holds info about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience | Lior</title>
+  <meta name="description" content="Lior's leadership, advisory, and campus roles at Toronto Metropolitan University.">
+
+  <!-- Fonts from Google Fonts: Fraunces (headings), DM Sans (body), Caveat (handwritten touches) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Connects this page to stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lets keyboard and screen reader users jump straight past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER & NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        Lior
+        <svg class="sparkle sparkle--small" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="experience.html" aria-current="page">Experience</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-header">
+      <div class="container page-header-inner--art">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h1>Where I've <em>shown up</em></h1>
+          <p class="page-lede">Leadership, advisory, and campus roles where I've put my interests in people, accessibility, and fair systems into practice.</p>
+        </div>
+
+        <!-- NAME BADGE: swings on its lanyard as you scroll. Decorative, hidden on phones. -->
+        <svg class="header-art badge" viewBox="0 0 280 320" aria-hidden="true">
+          <defs>
+            <linearGradient id="lanyard-gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#E83E9B"/>
+              <stop offset="1" stop-color="#8054C7"/>
+            </linearGradient>
+          </defs>
+          <g class="badge-settle">
+            <g class="badge-swing">
+              <path class="lanyard" d="M92 -10 L134 116 M188 -10 L146 116"/>
+              <rect class="badge-clip" x="128" y="110" width="24" height="24" rx="5"/>
+              <rect class="badge-body" x="60" y="128" width="160" height="172" rx="16"/>
+              <path class="badge-top" d="M60 144 a16 16 0 0 1 16 -16 h128 a16 16 0 0 1 16 16 v42 h-160 z"/>
+              <rect class="badge-hole" x="125" y="137" width="30" height="7" rx="3.5"/>
+              <text class="badge-hello" x="140" y="166">HELLO</text>
+              <text class="badge-small" x="140" y="181">my name is</text>
+              <text class="badge-name" x="140" y="262">Lior</text>
+              <path class="badge-spark" d="M196 222c.4 4.1 3.9 7.6 8 8-4.1.4-7.6 3.9-8 8-.4-4.1-3.9-7.6-8-8 4.1-.4 7.6-3.9 8-8z"/>
+              <rect class="badge-outline" x="60" y="128" width="160" height="172" rx="16"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section experience">
+      <div class="container">
+
+        <!-- ============ FILTERS ============ -->
+        <div class="filters">
+          <div class="filter-group" role="group" aria-labelledby="type-label">
+            <span id="type-label" class="filter-label">Type</span>
+            <button type="button" class="filter-button" data-filter-type="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-button" data-filter-type="groups" aria-pressed="false">Student groups</button>
+            <button type="button" class="filter-button" data-filter-type="campus" aria-pressed="false">Campus roles</button>
+            <button type="button" class="filter-button" data-filter-type="independent" aria-pressed="false">Independent work</button>
+          </div>
+          <div class="filter-group">
+            <label for="skill-filter" class="filter-label">Skill</label>
+            <!-- The skill list fills itself in from the tags on the cards below -->
+            <select id="skill-filter">
+              <option value="all">All skills</option>
+            </select>
+          </div>
+        </div>
+        <p class="filter-count" role="status" aria-live="polite"></p>
+
+        <!-- ============ ROLES ============
+             To add a role, copy a whole <article class="role-card"> ... </article> block.
+             data-type can be "groups", "campus", or "independent".
+             Skill tags should match the names in the Toolkit on the About page. -->
+
+        <section class="role-section" aria-labelledby="current-heading">
+          <h2 id="current-heading" class="role-section-heading">Current roles</h2>
+
+          <article class="role-card" data-type="groups">
+            <div class="role-meta">
+              <span class="chip chip--groups">Student group</span>
+              <p class="role-dates">Aug 2026 &ndash; Present</p>
+            </div>
+            <div class="role-body">
+              <h3>Equity, Community &amp; Inclusion Commissioner</h3>
+              <p class="role-org">Metropolitan Undergraduate Engineering Society (MUES)</p>
+              <p class="role-summary">I lead equity, community, and inclusion work for TMU's engineering students, and I'm building the committee's structure from the ground up.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Created the 2026/27 committee overview, application, evaluation rubric, email templates, and onboarding materials</li>
+                  <li>Designed a recruitment process that values ideas and perspectives over past experience, with an optional conversation and no penalty for limited availability</li>
+                  <li>Set up an anonymous feedback form so students can raise concerns safely</li>
+                  <li>Developing programming such as bias awareness and neurodivergent-friendly study workshops, and collaborating with Women in Engineering and Engineering Outreach</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>Inclusion mostly happens in how a process is designed, long before anyone shows up to an event. I want to bring that same attention to how systems are built in healthcare and regulatory work.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Leadership</li>
+                <li>Equity &amp; accessibility</li>
+                <li>Stakeholder collaboration</li>
+                <li>Resource design</li>
+                <li>Professional communication</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="groups">
+            <div class="role-meta">
+              <span class="chip chip--groups">Student group</span>
+              <p class="role-dates">Sept 2026 &ndash; Present</p>
+            </div>
+            <div class="role-body">
+              <h3>Co-Chair, Grit with Grace</h3>
+              <p class="role-org">Accessibility Accommodation Support Student Advisory Committee</p>
+              <p class="role-summary">I co-chair an initiative to increase disability representation in campus media, and I lead its creative team.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Provide creative direction and coordinate creative contributors</li>
+                  <li>Write a section of the podcast, including explaining the differences between academic consideration requests, temporary accommodations, and permanent accommodations</li>
+                  <li>Take part in production and editing discussions</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>Talking about disability well means being clear without oversimplifying, and respectful without being vague. That balance matters any time technical or policy information needs to reach the people it affects.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Leadership</li>
+                <li>Plain-language writing</li>
+                <li>Equity &amp; accessibility</li>
+                <li>Team collaboration</li>
+                <li>Professional communication</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="campus">
+            <div class="role-meta">
+              <span class="chip chip--campus">Campus role</span>
+              <p class="role-dates">Fall 2025 &ndash; Present</p>
+            </div>
+            <div class="role-body">
+              <h3>Member, Academic Integrity Council</h3>
+              <p class="role-org">Toronto Metropolitan University</p>
+              <p class="role-summary">I serve as the student member on three-person hearing panels for academic integrity penalty and appeal hearings, alongside two faculty members.</p>
+              <p class="role-note">Out of respect for confidentiality, I don't share details of any cases.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Review cases and take part in hearings and panel decisions</li>
+                  <li>Bring a student perspective to how cases are considered</li>
+                  <li>Help draft the formal decision letters sent after hearings</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>This role has shown me what procedural fairness looks like in practice: applying policy consistently, weighing different perspectives, and explaining decisions clearly in writing. It's the kind of thinking regulatory work depends on.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Policy interpretation</li>
+                <li>Fair decision-making</li>
+                <li>Professional communication</li>
+                <li>Stakeholder collaboration</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="campus">
+            <div class="role-meta">
+              <span class="chip chip--campus">Campus role</span>
+              <p class="role-dates">2026 &ndash; 2027</p>
+            </div>
+            <div class="role-body">
+              <h3>Member, Student Wellbeing Advisory Group</h3>
+              <p class="role-org">Toronto Metropolitan University</p>
+              <p class="role-summary">A paid advisory role where I contribute student perspectives to the university's wellbeing initiatives.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Review policies and procedures and provide feedback</li>
+                  <li>Advocate for health equity and help identify student wellbeing priorities</li>
+                  <li>Support improvements to student-facing services and initiatives</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>I'm looking forward to seeing how student feedback turns into real changes in institutional policy, and where that process works well or gets stuck.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Policy interpretation</li>
+                <li>Equity &amp; accessibility</li>
+                <li>Professional communication</li>
+                <li>Stakeholder collaboration</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="campus">
+            <div class="role-meta">
+              <span class="chip chip--campus">Campus role</span>
+              <p class="role-dates">TODO: dates</p>
+            </div>
+            <div class="role-body">
+              <h3>Mentor, Tri-Mentoring Program</h3>
+              <p class="role-org">Toronto Metropolitan University</p>
+              <p class="role-summary">I mentor a fellow student through TMU's Tri-Mentoring Program.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Support my mentee as they navigate university life (TODO: add specifics as the year goes on)</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>TODO: add once you're further into the program.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Leadership</li>
+                <li>Professional communication</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="role-section" aria-labelledby="upcoming-heading">
+          <h2 id="upcoming-heading" class="role-section-heading">Coming up</h2>
+
+          <article class="role-card" data-type="groups">
+            <div class="role-meta">
+              <span class="chip chip--groups">Student group</span>
+              <p class="role-dates">Nov 20 &ndash; 23, 2026</p>
+            </div>
+            <div class="role-body">
+              <h3>Delegate, Conference on Diversity in Engineering</h3>
+              <p class="role-org">Representing MUES at the University of Victoria</p>
+              <p class="role-summary">I was selected through an application process to represent MUES at the Conference on Diversity in Engineering.</p>
+              <details class="role-details">
+                <summary>More details</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>I'll update this after the conference with the sessions I attended, what I contributed, and my key takeaways</li>
+                </ul>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Equity &amp; accessibility</li>
+                <li>Professional communication</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="role-section" aria-labelledby="past-heading">
+          <h2 id="past-heading" class="role-section-heading">Past roles</h2>
+
+          <article class="role-card" data-type="groups">
+            <div class="role-meta">
+              <span class="chip chip--groups">Student group</span>
+              <p class="role-dates">Sept 2025 &ndash; Apr 2026</p>
+            </div>
+            <div class="role-body">
+              <h3>Member, Student Advisory Committee</h3>
+              <p class="role-org">Accessibility Accommodation Support Student Advisory Committee</p>
+              <p class="role-summary">I contributed a student perspective to accessibility discussions and initiatives at TMU.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Took part in committee discussions on disability inclusion and accessibility</li>
+                  <li>Was involved in the 2026 Student-Led Accessibility Conference, Disability and Inclusion @ TMU: Nothing About Us Without Us (TODO: describe your role)</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>"Nothing about us without us" stuck with me. The people affected by a decision should help shape it, and that applies to designing technology just as much as to university policy.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Equity &amp; accessibility</li>
+                <li>Team collaboration</li>
+                <li>Professional communication</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="campus">
+            <div class="role-meta">
+              <span class="chip chip--campus">Campus role</span>
+              <p class="role-dates">TODO: date</p>
+            </div>
+            <div class="role-body">
+              <h3>Student Panellist and Presenter, SHIFT Orientation</h3>
+              <p class="role-org">Toronto Metropolitan University</p>
+              <p class="role-summary">I spoke on a student panel at in-person SHIFT orientation and presented the Accessibility @ TMU Pocket Guide to incoming students.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Shared a student perspective on accessibility in STEM</li>
+                  <li>Introduced the Pocket Guide as a practical resource for navigating accommodations and university supports</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>Presenting to students who were brand new to university made me think hard about what people actually need to hear first, and what can wait.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Professional communication</li>
+                <li>Plain-language writing</li>
+                <li>Equity &amp; accessibility</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="groups">
+            <div class="role-meta">
+              <span class="chip chip--groups">Student group</span>
+              <p class="role-dates">TODO: dates</p>
+            </div>
+            <div class="role-body">
+              <h3>Director of Communications</h3>
+              <p class="role-org">Biomedical Engineering Society (BMES), TMU</p>
+              <p class="role-summary">I handled communications for TMU's Biomedical Engineering Society.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Reached out to and recruited professionals as panellists for our events, including the Synapse panel on healthcare innovation</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>Reaching out to professionals as a student taught me to be clear and confident about why someone's time would be well spent.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Professional communication</li>
+                <li>Stakeholder collaboration</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" data-type="independent">
+            <div class="role-meta">
+              <span class="chip chip--independent">Independent work</span>
+              <p class="role-dates">TODO: dates</p>
+            </div>
+            <div class="role-body">
+              <h3>Private Tutor</h3>
+              <p class="role-org">Elementary students</p>
+              <p class="role-summary">I tutored elementary students in math, science, and French.</p>
+              <details class="role-details">
+                <summary>What I do and what I'm taking with me</summary>
+                <h4>What I do</h4>
+                <ul>
+                  <li>Planned and led sessions in math, science, and French (TODO: adjust to match what you did)</li>
+                </ul>
+                <h4>What I'm taking with me</h4>
+                <p>Explaining the same idea in different ways until it clicks is a skill I use constantly, whether I'm writing a guide or explaining a technical concept.</p>
+              </details>
+              <ul class="tags" aria-label="Skills">
+                <li>Professional communication</li>
+                <li>Plain-language writing</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <!-- ============ AWARDS (for later) ============
+             Once awards or scholarships are confirmed, remove the comment markers around this block.
+
+        <section class="role-section" aria-labelledby="awards-heading">
+          <h2 id="awards-heading" class="role-section-heading">Awards &amp; scholarships</h2>
+          <ul class="awards-list">
+            <li><span class="award-name">Award name</span> <span class="award-meta">Organization &middot; Year</span></li>
+          </ul>
+        </section>
+        -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Lior. Built by hand in HTML and CSS.</p>
+      <a href="accessibility.html">Accessibility statement</a>
+    </div>
+  </footer>
+
+  <!-- Filters the roles by type and skill -->
+  <script>
+    const cards = [...document.querySelectorAll('.role-card')];
+    const typeButtons = [...document.querySelectorAll('[data-filter-type]')];
+    const skillSelect = document.getElementById('skill-filter');
+    const count = document.querySelector('.filter-count');
+    let activeType = 'all';
+    let activeSkill = 'all';
+
+    const tagsOf = card => [...card.querySelectorAll('.tags li')].map(li => li.textContent.trim());
+
+    // Build the skill dropdown from every tag used on the page
+    [...new Set(cards.flatMap(tagsOf))].sort().forEach(skill => {
+      const option = document.createElement('option');
+      option.value = skill;
+      option.textContent = skill;
+      skillSelect.appendChild(option);
+    });
+
+    function applyFilters() {
+      let shown = 0;
+      cards.forEach(card => {
+        const tags = tagsOf(card);
+        const matches = (activeType === 'all' || card.dataset.type === activeType) &&
+                        (activeSkill === 'all' || tags.includes(activeSkill));
+        card.hidden = !matches;
+        if (matches) shown++;
+        card.querySelectorAll('.tags li').forEach(li =>
+          li.classList.toggle('is-match', li.textContent.trim() === activeSkill));
+      });
+      // Hide a whole section (like "Coming up") if none of its roles match
+      document.querySelectorAll('.role-section').forEach(section => {
+        section.hidden = !section.querySelector('.role-card:not([hidden])');
+      });
+      count.textContent = shown === cards.length ? `Showing all ${shown} roles`
+        : shown ? `Showing ${shown} of ${cards.length} roles`
+        : 'No roles match those filters yet.';
+    }
+
+    typeButtons.forEach(button => button.addEventListener('click', () => {
+      activeType = button.dataset.filterType;
+      typeButtons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+      applyFilters();
+    }));
+    skillSelect.addEventListener('change', () => { activeSkill = skillSelect.value; applyFilters(); });
+
+    // Lets other pages link straight to a skill, e.g. experience.html?skill=Leadership
+    const fromLink = new URLSearchParams(location.search).get('skill');
+    if (fromLink && [...skillSelect.options].some(o => o.value === fromLink)) {
+      skillSelect.value = fromLink;
+      activeSkill = fromLink;
+    }
+    applyFilters();
+  </script>
+
+  <!-- Swings the name badge as you scroll, then lets it settle -->
+  <script>
+    const badge = document.querySelector('.badge-swing');
+    if (badge) {
+      const header = document.querySelector('.page-header');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let ticking = false;
+      function swingBadge() {
+        ticking = false;
+        if (reduceMotion.matches) return;
+        const progress = Math.min(1, Math.max(0, window.scrollY / header.offsetHeight));
+        // Swings back and forth, getting smaller as the header scrolls away
+        const angle = 9 * Math.sin(progress * Math.PI * 3) * (1 - progress * 0.6);
+        badge.setAttribute('transform', `rotate(${angle.toFixed(2)} 140 116)`);
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(swingBadge); }
+      }, { passive: true });
+    }
+  </script>
+
+</body>
+</html>

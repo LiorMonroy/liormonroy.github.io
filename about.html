@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- The <head> holds info about the page that visitors don't see directly -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Lior</title>
+  <meta name="description" content="How Lior went from social work to biomedical engineering, and why accessibility and policy matter to her work.">
+
+  <!-- Fonts from Google Fonts: Fraunces (headings), DM Sans (body), Caveat (handwritten touches) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Connects this page to stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Lets keyboard and screen reader users jump straight past the menu -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER & NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        Lior
+        <svg class="sparkle sparkle--small" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-header">
+      <div class="container page-header-inner page-header-inner--art">
+        <div>
+          <p class="eyebrow">About</p>
+          <h1>The long way to <em>engineering</em></h1>
+          <p class="page-lede">And why I think it was the right way for me.</p>
+        </div>
+
+        <!-- THE TRAIL: footprints walk from "social work" to the X as you scroll.
+             Decorative, so screen readers skip it. Hidden on phones. -->
+        <svg class="trail" viewBox="0 0 280 320" aria-hidden="true">
+          <path class="trail-path" d="M40 48 C120 20 225 62 190 120 S45 160 85 215 S232 238 226 282"/>
+          <circle class="trail-start" cx="40" cy="48" r="9"/>
+          <text class="trail-label" x="14" y="26">social work</text>
+          <g class="trail-feet"></g>
+          <g class="trail-x">
+            <line x1="212" y1="268" x2="240" y2="296"/>
+            <line x1="240" y1="268" x2="212" y2="296"/>
+          </g>
+          <text class="trail-label trail-label--end" x="138" y="308">here!</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ STORY + AT A GLANCE ============ -->
+    <section class="section">
+      <div class="container about-layout">
+
+        <div class="about-story">
+
+          <h2>How I got here</h2>
+          <p>I didn't start in engineering. My first year at TMU was in Social Work. I went in because I wanted to help people, and that part never changed.</p>
+          <p>What changed was how I wanted to do it. Over that year, I realized I was more drawn to the behind-the-scenes side of helping: the tools, systems, and services that shape people's experiences long before they walk into an office or a clinic. I started researching where that kind of work happens, and biomedical engineering kept coming up. It gave me a way to build technical skills while keeping the same purpose I started with.</p>
+          <p>So I switched, and here I am. That year in social work still shapes how I think. I don't only ask whether a technology works. I ask who it works for, and who it might leave out.</p>
+
+          <blockquote class="pull-quote">
+            <p>Technology and the people it's built for shouldn't be separate questions.</p>
+          </blockquote>
+
+          <p>Alongside my degree, I'm working on minors in Philosophy and Biological Psychology. If I'm going to design for people, I want to understand them: how their brains and bodies work, and the ethical questions that come with building things that shape their lives.</p>
+
+          <h2>Why accessibility and policy</h2>
+          <p>Accessibility is where my interests meet. It's technical, because a product or space either works for someone or it doesn't. It's also about systems, because whether someone can fully take part often depends on policies, processes, and who was considered when those were designed.</p>
+          <p>A lot of my work at TMU has started with noticing that the information or support existed, but wasn't usable. University accessibility resources can be written in dense policy language that's hard to get through when you're already struggling, which is why I built the <a href="#">Accessibility @ TMU Pocket Guide</a>. Through <a href="#">Grit with Grace</a>, I've also been thinking about how accessibility isn't only for students with permanent disabilities. Grief, injuries, and hard stretches of life affect people's ability to participate too.</p>
+          <p>That's also why policy interests me. Regulations and institutional decisions quietly decide what's safe, what's available, and who gets considered. Serving on Academic Integrity Council hearing panels has shown me what careful, fair decision-making looks like in practice, and it's the kind of thinking I want to bring to healthcare technology.</p>
+
+          <h2>Where I'm headed</h2>
+          <p>I'm keeping my options open on purpose. What I know is that I want work that helps people from behind the scenes, making the technology, systems, and decisions around healthcare and accessibility work better for the people who rely on them.</p>
+          <p>Right now, I'm especially interested in:</p>
+          <ul class="sparkle-list">
+            <li>Medical device regulation and regulatory affairs</li>
+            <li>Quality systems and risk management</li>
+            <li>Accessibility and health policy</li>
+            <li>Technical operations, data, and analytics</li>
+            <li>Clinical and rehabilitation engineering</li>
+          </ul>
+
+        </div>
+
+        <!-- AT A GLANCE: stays in view while you scroll on computer screens -->
+        <aside class="glance" aria-labelledby="glance-heading">
+          <h2 id="glance-heading">At a glance</h2>
+          <dl>
+            <div><dt>Studying</dt><dd>Bachelor of Engineering, Biomedical Engineering</dd></div>
+            <div><dt>University</dt><dd>Toronto Metropolitan University</dd></div>
+            <div><dt>Minors</dt><dd>Philosophy and Biological Psychology (in progress)</dd></div>
+            <div><dt>Expected graduation</dt><dd>2028</dd></div>
+            <div><dt>Based in</dt><dd>Toronto, Ontario</dd></div>
+            <div><dt>Languages</dt><dd>English and Spanish (fluent), French (professional working), Mandarin (introductory)</dd></div>
+            <!-- TODO: update as needed -->
+            <div><dt>Looking for</dt><dd>Summer 2027 internships and co-op placements</dd></div>
+          </dl>
+          <!-- TODO: link to résumé PDF once it's in the folder -->
+          <a class="button button--primary glance-button" href="#">Download my résumé</a>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ============ TOOLKIT ============
+         To add a skill, copy one <li> line in the right group.
+         Chips: chip--course, chip--groups, chip--campus, chip--personal.
+         When you finish learning something, move its line into the right group above. -->
+    <section class="section section--tinted" aria-labelledby="toolkit-heading">
+      <div class="container">
+        <p class="eyebrow">Toolkit</p>
+        <h2 id="toolkit-heading">What I work with</h2>
+        <p class="toolkit-intro">The skills I've actually used, and where I used them. The ones I'm still building get their own list, because I'd rather be honest about where I am.</p>
+        <div class="toolkit-grid">
+
+          <div class="toolkit-group">
+            <h3>Technical</h3>
+            <ul class="skill-list">
+              <li><span class="skill-name">MATLAB</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Python</span><span class="skill-where"><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">C / C++</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Arduino</span><span class="skill-where"><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Git &amp; GitHub</span><span class="skill-where"><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Data analysis</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Circuits &amp; instrumentation</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+            </ul>
+          </div>
+
+          <div class="toolkit-group">
+            <h3>Research &amp; communication</h3>
+            <ul class="skill-list">
+              <li><span class="skill-name">Research</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Plain-language writing</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--groups">Student groups</span></span></li>
+              <li><span class="skill-name">Resource design</span><span class="skill-where"><span class="chip chip--groups">Student groups</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Professional communication</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--groups">Student groups</span><span class="chip chip--campus">Campus roles</span></span></li>
+              <li><span class="skill-name">Policy interpretation</span><span class="skill-where"><span class="chip chip--campus">Campus roles</span></span></li>
+            </ul>
+          </div>
+
+          <div class="toolkit-group">
+            <h3>People &amp; leadership</h3>
+            <ul class="skill-list">
+              <li><span class="skill-name">Leadership</span><span class="skill-where"><span class="chip chip--groups">Student groups</span><span class="chip chip--campus">Campus roles</span></span></li>
+              <li><span class="skill-name">Equity &amp; accessibility</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--groups">Student groups</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Team collaboration</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--groups">Student groups</span></span></li>
+              <li><span class="skill-name">Stakeholder collaboration</span><span class="skill-where"><span class="chip chip--groups">Student groups</span><span class="chip chip--campus">Campus roles</span></span></li>
+              <li><span class="skill-name">Fair decision-making</span><span class="skill-where"><span class="chip chip--campus">Campus roles</span></span></li>
+            </ul>
+          </div>
+
+          <div class="toolkit-group toolkit-group--learning">
+            <h3>Currently learning</h3>
+            <ul class="skill-list">
+              <li><span class="skill-name">Excel</span><span class="skill-where"><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">AutoCAD</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">SolidWorks</span><span class="skill-where"><span class="chip chip--course">Courses</span><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">SQL</span><span class="skill-where"><span class="chip chip--personal">Personal projects</span></span></li>
+              <li><span class="skill-name">Power BI</span><span class="skill-where"><span class="chip chip--personal">Personal projects</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CLOSING CTA ============ -->
+    <section class="connect" aria-labelledby="about-cta-heading">
+      <div class="container connect-inner">
+        <h2 id="about-cta-heading">Want to see what this looks like in practice?</h2>
+        <p>My projects and experience show how these ideas turn into actual work.</p>
+        <div class="button-row">
+          <a class="button button--light" href="work.html">See my work</a>
+          <a class="button button--outline-light" href="experience.html">View my experience</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Lior. Built by hand in HTML and CSS.</p>
+      <a href="accessibility.html">Accessibility statement</a>
+    </div>
+  </footer>
+
+  <!-- Builds the footprints along the trail and reveals them as you scroll -->
+  <script>
+    const trail = document.querySelector('.trail');
+    if (trail) {
+      const path = trail.querySelector('.trail-path');
+      const feetGroup = trail.querySelector('.trail-feet');
+      const header = document.querySelector('.page-header');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const ns = 'http://www.w3.org/2000/svg';
+      const steps = 12;                       // how many footprints
+      const total = path.getTotalLength();
+      const feet = [];
+
+      // Place each footprint along the path, alternating left and right
+      for (let i = 0; i < steps; i++) {
+        const len = total * (i + 0.9) / (steps + 1.4);
+        const p = path.getPointAtLength(len);
+        const ahead = path.getPointAtLength(Math.min(total, len + 1));
+        const dx = ahead.x - p.x, dy = ahead.y - p.y;
+        const norm = Math.hypot(dx, dy) || 1;
+        const side = i % 2 === 0 ? -1 : 1;
+        const x = p.x + (-dy / norm) * 9 * side;
+        const y = p.y + (dx / norm) * 9 * side;
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+
+        const outer = document.createElementNS(ns, 'g');
+        outer.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${angle.toFixed(1)})`);
+        const foot = document.createElementNS(ns, 'g');
+        foot.setAttribute('class', 'foot ' + (side < 0 ? 'foot--left' : 'foot--right'));
+        foot.innerHTML = '<ellipse cx="0" cy="0" rx="5" ry="7.2"/><ellipse cx="0" cy="12.2" rx="3.9" ry="3.4"/>';
+        outer.appendChild(foot);
+        feetGroup.appendChild(outer);
+        feet.push(foot);
+      }
+
+      let ticking = false;
+      function updateTrail() {
+        ticking = false;
+        let progress = 1;
+        if (!reduceMotion.matches) {
+          // Starts with a couple of steps showing, finishes as the header scrolls away
+          const scrolled = window.scrollY / (header.offsetHeight * 0.8);
+          progress = 0.12 + Math.min(1, Math.max(0, scrolled)) * 0.88;
+        }
+        feet.forEach((foot, i) => foot.classList.toggle('is-shown', progress >= (i + 1) / steps));
+        trail.classList.toggle('is-done', progress >= 1);
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateTrail); }
+      }, { passive: true });
+      updateTrail();
+    }
+  </script>
+
+</body>
+</html>
