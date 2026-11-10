@@ -225,8 +225,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 16px -16px -16px 16px;
   border-radius: 999px 999px var(--radius) var(--radius);
-  padding: 2px;                                    /* thickness of the outline */
-  background: linear-gradient(160deg, var(--pink), var(--purple));
+  padding: 3px;                                    /* thickness of the outline */
+  background: linear-gradient(90deg, var(--pink), var(--purple));
   /* Cuts out the middle so only the outline shows */
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -607,7 +607,7 @@ img { max-width: 100%; display: block; }
   .now--with-timeline { grid-template-columns: 1.2fr 1fr; gap: 4rem; }
 
   /* Pushes the timeline down to line up with the list (computer screens only) */
-  .now--with-timeline .timeline-box { margin-top: 11.5rem; }
+  .now--with-timeline .timeline-box { margin-top: 7rem; }
 }
 
 .timeline-box {
@@ -1020,8 +1020,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 16px 16px -16px -16px;      /* offset to the other side this time */
   border-radius: 999px 999px var(--radius) var(--radius);
-  padding: 2px;
-  background: linear-gradient(200deg, var(--pink), var(--purple));
+  padding: 3px;
+  background: linear-gradient(-90deg, var(--pink), var(--purple));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
